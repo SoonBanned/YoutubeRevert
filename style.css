@@ -201,7 +201,21 @@ transform: translate(-0px, -2px);
         }  
 }
 
+.ytp-volume-slider-handle {
+    padding-top: 2px;
+    background-color: var(--main-color)
+}
 
+
+
+
+/* Volume button fix by SadScourge */
+.ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area {
+    margin: var(--element-margin) 3 !important;
+}
+.ytp-volume-slider {
+    padding-top: 7px
+}
 
 
 
