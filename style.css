@@ -167,15 +167,15 @@
 /* 	background: #f00; */
 }
 /* Revert old player icons */
-.ytp-play-button svg path {
+.ytp-play-button[data-title-no-tooltip="Play"] svg path {
 d: path("M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z");
 transform: translate(-0px, -2px);
 }
+.ytp-play-button[data-title-no-tooltip="Pause"] svg path {
+d: path("M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z")
+transform: translate(-0px, -2px);
+}  
     
-.ytp-volume-slider{
-    z-index:-1; /*marche pas*/
-}
-
 
 .ytp-efyt-button{
     transform: translate(-9px,-12px)
@@ -350,4 +350,5 @@ d: path("M18,8 C12.47,8 8,12.47 8,18 C8,23.52 12.47,28 18,28 C23.52,28 28,23.52 
 	grid-template-columns: repeat(5,1fr);
     
 }
+
 }
