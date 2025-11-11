@@ -1,6 +1,6 @@
 /* ==UserStyle==
-@name         YOUTUBE 2025 - FIX NEW UI
-@version      20251022.14.45
+@name         Youtube revert glass UI
+@version      0.8
 @namespace    ?
 @description  Makes new UI look like an old one
 @license      No License
@@ -8,7 +8,7 @@
 
 @-moz-document domain("youtube.com") {
 :root{
-	--toolbar-height: 52px;
+	--toolbar-height: 50px;
 	
 	--element-margin: 6px;
 	--element-height: calc(var(--toolbar-height) - var(--element-margin));
@@ -83,9 +83,7 @@
 	padding: 0 !important;
 }
 
-.ytp-delhi-modern .ytp-chrome-controls .ytp-play-button{
-	margin: var(--element-margin) 0 !important;
-}
+
 
 /* Volume */
 .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area{
@@ -96,6 +94,9 @@
 	padding: var(--element-margin) 0 !important;
 }
 
+.ytp-delhi-modern .ytp-chrome-controls .ytp-play-button{
+	margin: var(--element-margin) 0 !important;
+}
 /* Play button */
 .ytp-delhi-modern .ytp-chrome-controls .ytp-play-button{
 	--size: var(--element-height);
@@ -107,11 +108,12 @@
 /* Play icon */
 .ytp-delhi-modern-icons .ytp-chrome-controls .ytp-play-button svg{
 	padding: 10px !important;
-	--size: 46px;
+	--size: 40px;
 	height: var(--size) !important;
 	width: var(--size) !important;
     transform: translate(-8px,-8px);
 }
+
 
 /* gradient */
 .ytp-chrome-bottom:after{
@@ -127,8 +129,9 @@
 
 /* fullscreen fixes */
 
-.ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-volume-area, .ytp-big-mode .ytp-volume-slider, .ytp-delhi-modern .ytp-chrome-controls .ytp-mute-button, .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-time-display, .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chrome-controls .ytp-next-button:not(.ytp-miniplayer-button-container>*), .ytp-big-mode.ytp-delhi-modern .ytp-chrome-controls .ytp-prev-button:not(ytp-miniplayer-button-container>*), .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-time-wrapper, .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chapter-title.ytp-button{
-	height: var(--element-height) !important;
+.ytp-big-mode .ytp-volume-slider, .ytp-delhi-modern .ytp-chrome-controls .ytp-mute-button, .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-time-display, .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chrome-controls .ytp-next-button:not(.ytp-miniplayer-button-container>*), .ytp-big-mode.ytp-delhi-modern .ytp-chrome-controls .ytp-prev-button:not(ytp-miniplayer-button-container>*), .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-time-wrapper, .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chapter-title.ytp-button{
+    
+    height: var(--element-height) !important;
 	min-height: var(--element-height) !important;
 	line-height: var(--element-height) !important;
 	margin-top: 0px !important;
@@ -149,7 +152,17 @@
 .ytp-delhi-modern .ytp-time-wrapper:not(.ytp-miniplayer-ui *), .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area, .ytp-delhi-modern .ytp-chrome-controls .ytp-play-button, .ytp-delhi-modern .ytp-chrome-controls .ytp-right-controls, .ytp-delhi-modern .ytp-chrome-controls>*>*, .ytp-delhi-modern .ytp-chapter-title.ytp-button{
 	background: var(--bg-color) !important;
 }
-
+.ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-volume-booster svg{
+    transform: translate(-1rem, -0.2rem)
+}
+.ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-loop svg{
+    transform: translate(-1rem, -0.1rem)
+}
+.ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-volume-icon{
+    height: 150%;
+    width: 150%;
+    transform:  translate(-0.8rem, -1rem);
+}
 
 /* play and fullscreen buttons clickable in corners */
 
@@ -169,11 +182,9 @@
 /* Revert old player icons */
 .ytp-play-button[data-title-no-tooltip="Play"] svg path {
 d: path("M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z");
-transform: translate(-0px, -2px);
 }
 .ytp-play-button[data-title-no-tooltip="Pause"] svg path {
 d: path("M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z")
-transform: translate(-0px, -2px);
 }  
     
 
@@ -182,56 +193,58 @@ transform: translate(-0px, -2px);
 }
 
 #efyt-loop svg {
-    transform: translate(-9px,-2px)
+    transform: translate(-0.5rem, 0.3rem)
 }
+
 
 #efyt-volume-booster svg{
-    transform: translate(-9px,-2px)
+    transform: translate(-0.5rem, 0.3rem)
 }
 
-#efyt-controls-button svg{
-    transform: translate(12px,-20px)
+#efyt-controls-button{
+    transform: translate(1rem, -1rem)
 }
+
 
 #efyt-flip-vertically, #efyt-keyboard-shortcuts, #efyt-options, #efyt-video-filters, #efyt-speed, #efyt-pop-up-player, #efyt-size, #efyt-cinema-mode, #efyt-cards-end-screens, #efyt-screenshot{
-    transform: translate(9px,-20px);
+    transform: translate(0.5rem, -1rem);
     
     svg {
-        transform: translate(13px,0px);
+        transform: translate(1rem,0rem);
         }  
 }
 
+
+#startSegmentButton, #submitButton, #deleteButton, #cancelSegmentButton, #infoButton:not(.sbhidden){
+    transform: translateY(0.5rem)
+}
+
+/* USED with efyt theme to make the whole slider red
 .ytp-volume-slider-handle {
-    padding-top: 2px;
     background-color: var(--main-color)
 }
+*/
 
 
-
-
-/* Volume button fix by SadScourge */
-.ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area {
-    margin: var(--element-margin) 3 !important;
+.ytp-volume-icon > svg:nth-child(1){
+    height: 60%;
+    width: 60%;
+    transform:  translate(-0.8rem, -0.4rem);
 }
-.ytp-volume-slider {
-    padding-top: 7px
-}
-
-
-
 
     
 .ytp-svg-fill {
-d: path("M8,21 L12,21 L17,26 L17,10 L12,15 L8,15 L8,21 Z");
-transform: translate(-6px, -4px);
+d: path("M8,21 L12,21 L17,26 L17,10 L12,15 L8,15 L8,21 Z M19,14 L19,22 C20.48,21.32 21.5,19.77 21.5,18 C21.5,16.26 20.48,14.74 19,14 ZM19,11.29 C21.89,12.15 24,14.83 24,18 C24,21.17 21.89,23.85 19,24.71 L19,26.77 C23.01,25.86 26,22.28 26,18 C26,13.72 23.01,10.14 19,9.23 L19,11.29 Z");
+transform: translate(-0.25rem, -0.35rem);
 }
 .ytp-svg-volume-animation-small-ripple {
-d: path("M19,14 L19,22 C20.48,21.32 21.5,19.77 21.5,18 C21.5,16.26 20.48,14.74 19,14 Z");
-transform: translate(-6px, -4px);
+d: none;
+transform: none;
+
 }
 .ytp-svg-volume-animation-big-ripple {
-d: path("M19,11.29 C21.89,12.15 24,14.83 24,18 C24,21.17 21.89,23.85 19,24.71 L19,26.77 C23.01,25.86 26,22.28 26,18 C26,13.72 23.01,10.14 19,9.23 L19,11.29 Z");
-transform: translate(-6px, -4px);
+d: none;
+transform: none;
 }
 .ytp-delhi-modern [d*="M 12,24 20.5,18 12,12 V 24 z M 22,12 v 12 h 2 V 12 h -2 z"] {
 d: path("m 12,12 h 2 v 12 h -2 z m 3.5,6 8.5,6 V 12 z")
@@ -350,5 +363,4 @@ d: path("M18,8 C12.47,8 8,12.47 8,18 C8,23.52 12.47,28 18,28 C23.52,28 28,23.52 
 	grid-template-columns: repeat(5,1fr);
     
 }
-
 }
