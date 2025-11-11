@@ -1,5 +1,10 @@
+Almost done with translates
+
 TODO: 
 
-Compute button positions relative to size
+Translate efyt buttons when in fullscreen
+Adjust play/pause size when fullscreen
+Adjust alignment of efyt button if you don't use sponsorblock
 
-play/pause button transition
+
+
