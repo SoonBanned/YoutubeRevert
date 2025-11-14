@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI
-@version      20251114.19.43
+@version      20251114.19.46
 @namespace    ?
 @description  Makes new UI look like an old one
 @license      No License
@@ -180,7 +180,7 @@
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-loop svg {
     height: 110% !important;
     width: 110% !important;
-    transform: translate(-0.8rem, -0.3rem)
+    transform: translate(-0.8rem, -0.9rem)
 }
 .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-volume-icon {
     height: 150%;
@@ -769,4 +769,5 @@
     grid-template-columns: repeat(5, 1fr);
 }
 }
+
 
