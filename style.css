@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI
-@version      20251114.12.47
+@version      20251114.19.43
 @namespace    ?
 @description  Makes new UI look like an old one
 @license      No License
@@ -769,3 +769,4 @@
     grid-template-columns: repeat(5, 1fr);
 }
 }
+
