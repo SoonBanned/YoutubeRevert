@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI
-@version      20251114.19.32
+@version      20251114.12.47
 @namespace    ?
 @description  Makes new UI look like an old one
 @license      No License
@@ -175,7 +175,7 @@
 
 /* FULLSCREEN ADDS*/
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-volume-booster svg {
-    transform: translate(-1rem, -0.1rem)
+    transform: translate(-1rem, -1.2rem)
 }
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-loop svg {
     height: 110% !important;
@@ -433,14 +433,14 @@
             transform: translate(0.4rem, 0.4rem);
         }
         .ytp-next-button{
-            transform: translateX(0.5rem);
+            transform: translate(-0.3rem, 0.3rem);
         }
     
         .ytp-settings-button.ytp-hd-quality-badge::after {
             transform: translate(.5rem, 0.6rem);
         }
         .ytp-settings-button {
-            transform: translate(-1.2rem, -1.1rem);
+            transform: translate(-1.2rem, -1rem);
             svg {
                 width: 100%;
                 height: 100%;
@@ -451,7 +451,7 @@
     
     /* Case 1 CSS — both missing + FULLSCREEN */
         .ytp-play-button{
-            transform: translate(0.9rem, 0.1rem) !important;
+            transform: translate(-0.5rem, 0.3rem) !important;
         }
         .ytp-settings-button.ytp-hd-quality-badge::after {
             transform: translate(.5rem, 1.3rem) !important;
@@ -473,7 +473,7 @@
 #movie_player .ytp-chrome-bottom:has(#efyt-controls-button):not(:has(#startSegmentButton)) {
     /* non-fullscreen — EFYT only */
     #efyt-loop {
-        transform: translate(-0.2rem, -1rem)
+        transform: translate(-0.4rem, -0.3rem)
     }
     .ytp-play-button{
         transform: translate(0.3rem, 0.3rem) !important;
@@ -482,7 +482,7 @@
         transform: translateY(0.2rem);
     }
     .ytp-volume-icon > svg:nth-child(1) {
-        transform: translate(-0.8rem, -0.2rem);
+        transform: translate(-0.8rem, -0.4rem);
     }
 
     .ytp-volume-icon:has(svg > path:nth-of-type(1)):not(:has(svg > path:nth-of-type(2))) svg {
@@ -490,7 +490,7 @@
     }
     
     #efyt-volume-booster  {
-        transform: translate(-1.2rem, -1rem)
+        transform: translate(-1.2rem, 0.4rem)
     }
 
     #efyt-controls-button {
@@ -523,20 +523,27 @@
 
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) :is(#movie_player .ytp-chrome-bottom:has(#efyt-controls-button):not(:has(#startSegmentButton))) {
     /* fullscreen — EFYT only */
+    
+    #efyt-loop {
+        transform: translate(-0.4rem, -0.8rem);
+        svg {
+            transform: translate(-0.4rem, -0.5rem);
+        }
+    }
     .ytp-play-button{
         transform: translate(0.5rem, 0.1rem) !important;
     }
     
     .ytp-volume-icon > svg:nth-child(1) {
-        transform: translate(-0.8rem, -0.4rem) !important;
+        transform: translate(-0.8rem, -0.7rem) !important;
     }
     .ytp-volume-icon:has(svg > path:nth-of-type(1)):not(:has(svg > path:nth-of-type(2))) svg {
-        transform:translate(-0.4rem, 0rem) !important;
+        transform:translate(-0.4rem, -0.2rem) !important;
     }
     
     
     #efyt-volume-booster  {
-        transform: translate(-0.9rem, -1rem)
+        transform: translate(-1.1rem, -0rem)
     }
 
     #efyt-controls-button {
