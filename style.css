@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI
-@version      20251114.19.46
+@version      20251117.00.44
 @namespace    ?
 @description  Makes new UI look like an old one
 @license      No License
@@ -175,12 +175,12 @@
 
 /* FULLSCREEN ADDS*/
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-volume-booster svg {
-    transform: translate(-1rem, -1.2rem)
+    transform: translate(-1.1rem, -1.4rem)
 }
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-loop svg {
     height: 110% !important;
     width: 110% !important;
-    transform: translate(-0.8rem, -0.9rem)
+    transform: translate(-0.8rem, -0.8rem)
 }
 .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-volume-icon {
     height: 150%;
@@ -193,14 +193,19 @@
 }
 
 .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-play-button svg{
-    height: 140% !important;
-    width: 140% !important;
-    transform: translate(-1.6rem, -1.8rem)
+    height: 110% !important;
+    width: 110% !important;
+    transform: translate(-1.1rem, -1.2rem)
 }
 .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-next-button svg{
-    height: 80% !important;
-    width: 80% !important;
-    transform: translate(-0.6rem, -0.6rem)
+    height: 70% !important;
+    width: 70% !important;
+    transform: translate(-0.4rem, -0.3rem)
+}
+.ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-prev-button svg{
+    height: 70% !important;
+    width: 70% !important;
+    transform: translate(-0.4rem, -0.3rem)
 }
 
 
@@ -243,7 +248,7 @@
 
 
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-settings-button.ytp-hd-quality-badge::after {
-    transform: translate(.4rem, 1.3rem);
+    transform: translate(.8rem, 1.3rem);
 }
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-settings-button {
     transform: translate(-1.7rem, -1.5rem);
@@ -279,9 +284,9 @@
 /*Optional return of skip button even when not in playlist*/
 .ytp-next-button{
     display:block !important;
-    transform: translate(0rem, 0.2rem);
+    transform: translate(0rem, 0rem);
 }
-           
+
 
 
 /* Revert old player icons */
@@ -296,7 +301,7 @@
 }
 
 .ytp-play-button{
-    transform: translate(0rem, 0.25rem);
+    transform: translate(0rem, 0rem);
 }
 
 
@@ -305,11 +310,11 @@
 }
 
 #efyt-loop  {
-    transform: translate(-1rem, -.30rem)
+    transform: translate(-1rem, -.6rem)
 }
 
 #efyt-volume-booster  {
-    transform: translate(-0.8rem, 0.3rem)
+    transform: translate(-0.8rem, 0.1rem)
 }
 
 #efyt-volume-booster svg {
@@ -392,10 +397,11 @@
 }
 
 .ytp-settings-button.ytp-hd-quality-badge::after {
-    transform: translate(.5rem, -0.2rem);
+    transform: translate(.5rem, 0.1rem);
 }
 .ytp-settings-button {
-    transform: translate(-1.5rem, -0.8rem);
+    overflow: visible !important;
+    transform: translate(-1.1rem, -0.8rem);
     svg {
         width: 100%;
         height: 100%;
@@ -417,11 +423,17 @@
 .ytp-autonav-toggle-button{
     transform: translate(0rem, -0.4rem);
 }
-.ytp-volume-area{
-    transform:translateY(0.3rem);
+.ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-volume-area{
+    transform:translateY(-0.1rem);
 }
 
+.ytp-volume-area{
+    transform:translateY(0.05rem);
+}
 
+/*TODO 
+
+*/
 
 /*RULES WHEN EFYT AND SPONSORBLOCK ABSENTS*/
 
@@ -430,21 +442,24 @@
     
     /* Case 1 CSS — both missing */
         .ytp-play-button{
-            transform: translate(0.4rem, 0.4rem);
+            transform: translate(0.4rem, 0.2rem);
         }
         .ytp-next-button{
-            transform: translate(-0.3rem, 0.3rem);
+            transform: translate(-0.3rem, 0.1rem);
         }
     
         .ytp-settings-button.ytp-hd-quality-badge::after {
-            transform: translate(.5rem, 0.6rem);
+            transform: translate(.5rem, 0.1rem);
         }
         .ytp-settings-button {
-            transform: translate(-1.2rem, -1rem);
+            transform: translate(-1rem, -0.6rem);
             svg {
                 width: 100%;
                 height: 100%;
             }
+        }
+        .ytp-volume-area{
+            transform:translateY(0.1rem);
         }
 }
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) :is(#movie_player .ytp-chrome-bottom:not(:has(#efyt-controls-button)):not(:has(#startSegmentButton))) {
@@ -454,7 +469,7 @@
             transform: translate(-0.5rem, 0.3rem) !important;
         }
         .ytp-settings-button.ytp-hd-quality-badge::after {
-            transform: translate(.5rem, 1.3rem) !important;
+            transform: translate(.8rem, 1.2rem) !important;
         }
         .ytp-settings-button {
             transform: translate(-1.5rem, -1.5rem) !important;
@@ -462,6 +477,12 @@
                 width: 100%;
                 height: 100%;
             }
+        }
+        .ytp-volume-area{
+            transform:translateY(-0.05rem);
+        }
+        .ytp-time-display{
+            transform:translateY(0.3rem);
         }
 }
 
@@ -513,12 +534,14 @@
     }
     
     .ytp-settings-button.ytp-hd-quality-badge::after {
-        transform: translate(.5rem, 0.4rem) !important;
+        transform: translate(.5rem, 0.1rem) !important;
     }
     .ytp-settings-button {
-        transform: translate(-1rem, -0.8rem) !important;
+        transform: translate(-1rem, -0.6rem) !important;
     }
-
+    .ytp-volume-area{
+        transform:translateY(0.2rem);
+    }
 }
 
 .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) :is(#movie_player .ytp-chrome-bottom:has(#efyt-controls-button):not(:has(#startSegmentButton))) {
@@ -566,7 +589,7 @@
     }
     
     .ytp-settings-button.ytp-hd-quality-badge::after {
-        transform: translate(.4rem, 1.5rem) !important;
+        transform: translate(.8rem, 1.5rem) !important;
     }
     .ytp-settings-button {
         transform: translate(-1.7rem, -1.5rem) !important;
@@ -599,10 +622,10 @@
     
         
     .ytp-settings-button.ytp-hd-quality-badge::after {
-        transform: translate(.5rem, 0.5rem) !important;
+        transform: translate(.5rem, 0.1rem) !important;
     }
     .ytp-settings-button {
-        transform: translate(-1rem, -0.8rem) !important;
+        transform: translate(-1rem, -0.6rem) !important;
     }
     .ytp-volume-area, .ytp-time-display{
         transform:translateY(0.3rem);
@@ -628,10 +651,10 @@
         transform:translateY(0rem);
     }
     .ytp-settings-button.ytp-hd-quality-badge::after {
-        transform: translate(.5rem, 1.32rem) !important;
+        transform: translate(.9rem, 1.5rem) !important;
     }
     .ytp-settings-button {
-        transform: translate(-1.4rem, -1.5rem) !important;
+        transform: translate(-1.5rem, -1.5rem) !important;
     }
     #startSegmentButton,
     #submitButton,
@@ -769,5 +792,3 @@
     grid-template-columns: repeat(5, 1fr);
 }
 }
-
-
