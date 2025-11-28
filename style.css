@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI
-@version      20251117.00.44
+@version      20251128.17.37
 @namespace    ?
 @description  Makes new UI look like an old one
 @license      No License
@@ -372,7 +372,10 @@
     transform:translate(-0.4rem, -0.1rem);
 }
 
-
+.ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .previewbar{
+    height:130% !important;
+    bottom: 0.1rem;
+}
 
 
 .ytp-svg-fill {
