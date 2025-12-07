@@ -1,12 +1,15 @@
+Check out the stylus page !
+[Stylus Script Page](https://userstyles.world/style/24871/youtube-revert-glass-ui)
+
+
 Almost done with translates
 
 TODO: 
 
-Translate efyt buttons when in fullscreen
 
 Adjust play/pause size when fullscreen
 
-Adjust alignment of efyt button if you don't use sponsorblock
+Fix youtube embeds
 
 
 
