@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI
-@version      20251207.19.19
+@version      20251207.19.21
 @namespace    ?
 @description  Makes new UI look like an old one
 @license      No License
@@ -352,11 +352,11 @@
 
 
 
-/*Optional USED with efyt theme to make the whole slider red*/
+/*Optional USED with efyt theme to make the whole slider red
 .ytp-volume-slider-handle {
     background-color: var(--main-color)
 }
-
+*/
 
 .ytp-volume-icon > svg:nth-child(1) {
     height: 60%;
