@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI
-@version      20251128.17.57
+@version      20251207.19.19
 @namespace    ?
 @description  Makes new UI look like an old one
 @license      No License
@@ -102,9 +102,7 @@
     padding: var(--element-margin) 0 !important;
 }
 
-.ytp-delhi-modern .ytp-chrome-controls .ytp-play-button {
-    margin: var(--element-margin) 0 !important;
-}
+
 /* Play button */
 .ytp-delhi-modern .ytp-chrome-controls .ytp-play-button {
     --size: var(--element-height);
@@ -195,7 +193,7 @@
 .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-play-button svg{
     height: 110% !important;
     width: 110% !important;
-    transform: translate(-1.1rem, -1.2rem)
+    transform: translate(-16%, -27%)
 }
 .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-next-button svg{
     height: 70% !important;
@@ -301,7 +299,7 @@
 }
 
 .ytp-play-button{
-    transform: translate(0rem, 0rem);
+    transform: translate(7%, -0%);
 }
 
 
@@ -354,11 +352,11 @@
 
 
 
-/*Optional USED with efyt theme to make the whole slider red
+/*Optional USED with efyt theme to make the whole slider red*/
 .ytp-volume-slider-handle {
     background-color: var(--main-color)
 }
-*/
+
 
 .ytp-volume-icon > svg:nth-child(1) {
     height: 60%;
@@ -800,4 +798,3 @@
     grid-template-columns: repeat(5, 1fr);
 }
 }
-
