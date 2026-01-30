@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI (Optimized)
-@version      20260109.00.16
+@version      20260130.17.15
 @namespace    ?
 @description  Makes new UI look like an old one. Optimized for easier maintenance.
 @license      No License
@@ -40,10 +40,12 @@
        ========================================================================== */
     
     /* A. STATE: Default (Small Mode) with NO Extensions */
-    #movie_player .ytp-chrome-bottom {
-        /* Inherits defaults from :root */
+    .ytp-delhi-modern:not(:has(#efyt-controls-button)):not(:has(#startSegmentButton)) {    
+    
+        .ytp-settings-button {
+            transform: scale(1.9) translate(calc(0.2rem + 0.05rem), calc(0rem + 0.05rem)) !important;
+        }
     }
-
     /* B. STATE: Fullscreen (Big Mode) Defaults */
     .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #movie_player .ytp-chrome-bottom,
     #movie_player.ytp-big-mode .ytp-chrome-bottom {
@@ -88,7 +90,15 @@
        ========================================================================== */
 
     /* --- Base Variables & Colors --- */
-    .ytd-player, .yt-lockup-view-model__content-image, .ytd-topbar-logo-renderer {
+    /*OPTION (next 2 rules) to make volume slider red*/
+    .ytp-volume-slider-handle::before{
+        background-color:#f82723;
+    }
+    .ytp-volume-slider-handle{
+        background: #f82723;
+    }
+    
+    .ytd-player, .yt-lockup-view-model__content-image, .ytd-topbar-logo-renderer, .ytd-thumbnail {
         --main-color: #f82723;
     }
     
@@ -98,8 +108,13 @@
     .ytp-play-button {
         transform: translate(var(--play-x), var(--play-y)) !important;
     }
+    .ytp-prev-button{
+        transform: translate(var(--next-x), var(--next-y));
+    }
     .ytp-next-button {
+        /*OPTION (next rule only) make next (or skip) button visible when not in playlist*/
         display: block !important;
+        
         transform: translate(var(--next-x), var(--next-y));
     }
     .ytp-volume-area {
@@ -107,7 +122,10 @@
     }
     .ytp-settings-button {
         overflow: visible !important;
-        transform: scale(1.7) translate(var(--set-x), var(--set-y)) !important;
+        transform: scale(1.9) translate(calc(var(--set-x) + 0.05rem), calc(var(--set-y) + 0.05rem)) !important;
+        svg {
+            transform:  translate(-0.05rem, -0.05rem);
+        }
     }
     .ytp-settings-button.ytp-hd-quality-badge::after {
         /* Calculates badge position relative to settings button offset */
@@ -322,6 +340,9 @@
     [d*="M20 20C20.26 20 20.51 19.89 20.70 19.70"] { d: path("M 12,24 20.5,18 12,12 V 24 z M 22,12 v 12 h 2 V 12 h -2 z"); transform: scale(1.36) translate(-9px, -9px); }
 
     /* Volume */
+    .ytp-volume-icon:has(svg > path:nth-of-type(1)):not(:has(svg > path:nth-of-type(2))) svg {
+        transform: translate(-0.6rem, -0.2rem);
+    }
     .ytp-volume-icon > svg:nth-child(1) { height: 60%; width: 60%; transform: translate(-0.8rem, -0.4rem); }
     
     .ytp-svg-fill { d: path("M8,21 L12,21 L17,26 L17,10 L12,15 L8,15 L8,21 Z M19,14 L19,22 C20.48,21.32 21.5,19.77 21.5,18 C21.5,16.26 20.48,14.74 19,14 ZM19,11.29 C21.89,12.15 24,14.83 24,18 C24,21.17 21.89,23.85 19,24.71 L19,26.77 C23.01,25.86 26,22.28 26,18 C26,13.72 23.01,10.14 19,9.23 L19,11.29 Z"); transform: translate(-0.25rem, -0.35rem); }
@@ -346,7 +367,13 @@
 
     /* Misc Icons */
     [d*="M21.20 3.01C21.66 3.05"] { d: path("M25,17 L17,17 L17,23 L25,23 L25,17 L25,17 Z M29,25 L29,10.98 C29,9.88 28.1,9 27,9 L9,9 C7.9,9 7,9.88 7,10.98 L7,25 C7,26.1 7.9,27 9,27 L27,27 C28.1,27 29,26.1 29,25 L29,25 Z M27,25.02 L9,25.02 L9,10.97 L27,10.97 L27,25.02 L27,25.02 Z"); transform: scale(1.083) translate(-6.75px, -6.75px); }
-
+    
+    /*subtitles*/
+    [d^="M21.20 3.01L21 3H3L2.79 3.01C2.30 3.06 1.84 3.29"] {
+  d: path("M19,4H5C3.9,4,3,4.9,3,6v12c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V6C21,4.9,20.1,4,19,4z M19,18H5V6h14V18z M7,11h2c0.55,0,1,0.45,1,1s-0.45,1-1,1H7c-0.55,0-1-0.45-1-1S6.45,11,7,11z M13,11h4c0.55,0,1,0.45,1,1s-0.45,1-1,1h-4c-0.55,0-1-0.45-1-1S12.45,11,13,11z M7,14h4c0.55,0,1,0.45,1,1s-0.45,1-1,1H7c-0.55,0-1-0.45-1-1S6.45,14,7,14z M15,14h2c0.55,0,1,0.45,1,1s-0.45,1-1,1h-2c-0.55,0-1-0.45-1-1S14.45,14,15,14z")}
+  [d^="M21 3H3C2.46 3 1.96 3.21 1.58 3.58C1.21"]{
+d: path("M19,4H5C3.9,4,3,4.9,3,6v12c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V6C21,4.9,20.1,4,19,4z M19,18H5V6h14V18z M7,11h2c0.55,0,1,0.45,1,1s-0.45,1-1,1H7c-0.55,0-1-0.45-1-1S6.45,11,7,11z M13,11h4c0.55,0,1,0.45,1,1s-0.45,1-1,1h-4c-0.55,0-1-0.45-1-1S12.45,11,13,11z M7,14h4c0.55,0,1,0.45,1,1s-0.45,1-1,1H7c-0.55,0-1-0.45-1-1S6.45,14,7,14z M15,14h2c0.55,0,1,0.45,1,1s-0.45,1-1,1h-2c-0.55,0-1-0.45-1-1S14.45,14,15,14z M4,22h16c0.55,0,1,0.45,1,1s-0.45,1-1,1H4c-0.55,0-1-0.45-1-1S3.45,22,4,22z")
+  }
 
     [d*="M3.29 3.29C3.11 3.46 3.01 3.70"] { d: path("M10,10H6V9h3V6h1V10z M18,9h-3V6h-1v4h4V9z M15,15h3v-1h-4v4h1V15z M10,14H6v1h3v3h1V14z"); transform: scale(1.5) translate(-4px, -4px); }
     [d*="M12 .99C5.92 .99 1 5.92 1 11.99"] { d: path("M7 13H5v-2h2v2zm3-4H8v6h2V9zm3-3h-2v12h2V6zm3 2h-2v8h2V8zm3 2h-2v4h2v-4zm-7-7c-4.96 0-9 4.04-9 9s4.04 9 9 9 9-4.04 9-9-4.04-9-9-9m0-1c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"); }
@@ -370,6 +397,31 @@
         overscroll-behavior: none !important;
     }
 }
+
+
+
+
+
+    /* ==========================================================================
+       6. YOUTUBE EMBED FIX
+       ========================================================================== */
+
+
+html:not(:has(ytd-app)) #movie_player .ytp-chrome-bottom {
+    
+    /*Finally got a selector for embeds, now we'll bang our head against walls again*/
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @-moz-document domain("youtube.com") {
 /* Video endscreen fix */
