@@ -43,13 +43,12 @@ This CSS includes **two optional tweaks** you can enable or disable easily:
 
 ## 🛠️ TODO (not urgent)
 
-- Fix **YouTube embeds**
-- Restore **SponsorBlock hover effect** when *not* in fullscreen  
-  (currently looks a bit weird)
-
 ---
 
 ## 📜 Changelog
+
+### `2026-02-02 16:01`
+- Fixed YouTube embeds
 
 ### `2026-01-30 17:15`
 - Optional features (slider color + skip button) are now **much easier to find**  
