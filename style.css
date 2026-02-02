@@ -1,12 +1,13 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI (Optimized)
-@version      20260130.17.15
+@version      20260202.16.01
 @namespace    ?
 @description  Makes new UI look like an old one. Optimized for easier maintenance.
 @license      No License
 ==/UserStyle== */
 
 @-moz-document domain("youtube.com") {
+
 /* ==========================================================================
        1. CONFIGURATION & VARIABLES
        ========================================================================== */
@@ -40,15 +41,15 @@
        ========================================================================== */
     
     /* A. STATE: Default (Small Mode) with NO Extensions */
-    .ytp-delhi-modern:not(:has(#efyt-controls-button)):not(:has(#startSegmentButton)) {    
+    html:has(ytd-app) .ytp-delhi-modern:not(:has(#efyt-controls-button)):not(:has(#startSegmentButton)) {    
     
         .ytp-settings-button {
             transform: scale(1.9) translate(calc(0.2rem + 0.05rem), calc(0rem + 0.05rem)) !important;
         }
     }
     /* B. STATE: Fullscreen (Big Mode) Defaults */
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #movie_player .ytp-chrome-bottom,
-    #movie_player.ytp-big-mode .ytp-chrome-bottom {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #movie_player .ytp-chrome-bottom,
+    html:has(ytd-app) #movie_player.ytp-big-mode .ytp-chrome-bottom {
         --play-x: -0.5rem;  --play-y: 0.3rem;
         --set-x: -1.5rem;   --set-y: -1.5rem;
         --vol-y: -0.05rem;
@@ -56,7 +57,7 @@
     }
 
     /* C. STATE: Enhancer for YouTube is PRESENT */
-    #movie_player .ytp-chrome-bottom:has(#efyt-controls-button) {
+    html:has(ytd-app) #movie_player .ytp-chrome-bottom:has(#efyt-controls-button) {
         --play-x: 0.3rem;   --play-y: 0.3rem;
         --next-y: 0.2rem;
         --vol-y: 0.2rem;
@@ -64,14 +65,14 @@
     }
     
     /* D. STATE: Fullscreen + EFYT */
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #movie_player .ytp-chrome-bottom:has(#efyt-controls-button) {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #movie_player .ytp-chrome-bottom:has(#efyt-controls-button) {
         --play-x: 0.5rem;   --play-y: 0.1rem;
         --set-x: -1.7rem;   --set-y: -1.5rem;
         --vol-y: 0rem;      /* Reset volume Y */
     }
 
     /* E. STATE: SponsorBlock is PRESENT */
-    #movie_player .ytp-chrome-bottom:has(#startSegmentButton) {
+    html:has(ytd-app) #movie_player .ytp-chrome-bottom:has(#startSegmentButton) {
         --play-x: 0.3rem;   --play-y: 0.2rem;
         --next-x: -0.3rem;  --next-y: 0.2rem;
         --vol-y: 0.3rem;
@@ -79,7 +80,7 @@
     }
 
     /* F. STATE: Fullscreen + SponsorBlock */
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #movie_player .ytp-chrome-bottom:has(#startSegmentButton) {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #movie_player .ytp-chrome-bottom:has(#startSegmentButton) {
         --next-x: 0.2rem;   --next-y: 0.2rem;
         --vol-y: 0rem;
         --set-x: -1.5rem;   --set-y: -1.5rem;
@@ -91,43 +92,43 @@
 
     /* --- Base Variables & Colors --- */
     /*OPTION (next 2 rules) to make volume slider red*/
-    .ytp-volume-slider-handle::before{
+    html:has(ytd-app) .ytp-volume-slider-handle::before{
         background-color:#f82723;
     }
-    .ytp-volume-slider-handle{
+    html:has(ytd-app) .ytp-volume-slider-handle{
         background: #f82723;
     }
     
-    .ytd-player, .yt-lockup-view-model__content-image, .ytd-topbar-logo-renderer, .ytd-thumbnail {
+    html:has(ytd-app) .ytd-player, html:has(ytd-app) .yt-lockup-view-model__content-image, html:has(ytd-app) .ytd-topbar-logo-renderer, html:has(ytd-app) .ytd-thumbnail {
         --main-color: #f82723;
     }
     
     /* --- APPLY CALCULATED TRANSFORMS --- */
     /* This section applies the logic determined in Section 2 */
     
-    .ytp-play-button {
+    html:has(ytd-app) .ytp-play-button {
         transform: translate(var(--play-x), var(--play-y)) !important;
     }
-    .ytp-prev-button{
+    html:has(ytd-app) .ytp-prev-button{
         transform: translate(var(--next-x), var(--next-y));
     }
-    .ytp-next-button {
+    html:has(ytd-app) .ytp-next-button {
         /*OPTION (next rule only) make next (or skip) button visible when not in playlist*/
         display: block !important;
         
         transform: translate(var(--next-x), var(--next-y));
     }
-    .ytp-volume-area {
+    html:has(ytd-app) .ytp-volume-area {
         transform: translateY(var(--vol-y));
     }
-    .ytp-settings-button {
+    html:has(ytd-app) .ytp-settings-button {
         overflow: visible !important;
         transform: scale(1.9) translate(calc(var(--set-x) + 0.05rem), calc(var(--set-y) + 0.05rem)) !important;
         svg {
             transform:  translate(-0.05rem, -0.05rem);
         }
     }
-    .ytp-settings-button.ytp-hd-quality-badge::after {
+    html:has(ytd-app) .ytp-settings-button.ytp-hd-quality-badge::after {
         /* Calculates badge position relative to settings button offset */
         transform: scale(0.7) translateX(-0.4rem)!important;
     }
@@ -146,50 +147,50 @@
     }
 
     /* --- General Layout Fixes --- */
-    .playerButtonImage { padding-bottom: 20px; }
-    .ytp-autonav-toggle-button { top: 40%; transform: translate(0rem, -0.4rem); }
+    html:has(ytd-app) .playerButtonImage { padding-bottom: 20px; }
+    html:has(ytd-app) .ytp-autonav-toggle-button { top: 40%; transform: translate(0rem, -0.4rem); }
 
     /* Tooltips & Bars */
-    .ytp-delhi-modern .ytp-tooltip { margin-top: 12px !important; }
+    html:has(ytd-app) .ytp-delhi-modern .ytp-tooltip { margin-top: 12px !important; }
     
-    .ytp-delhi-modern .ytp-chrome-bottom,
-    .ytp-delhi-modern .ytp-chrome-controls {
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chrome-bottom,
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chrome-controls {
         height: var(--toolbar-height) !important;
         line-height: var(--toolbar-height) !important;
     }
     
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chrome-bottom,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-right-controls .ytp-right-controls-right,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-right-controls .ytp-right-controls-left {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chrome-bottom,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-right-controls .ytp-right-controls-right,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-right-controls .ytp-right-controls-left {
         height: var(--toolbar-height) !important;
         line-height: var(--toolbar-height) !important;
     }
 
     /* Progress Bar Positioning */
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-progress-bar-container,
-    .ytp-delhi-modern:not(.ytp-player-minimized) .ytp-progress-bar-container {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-progress-bar-container,
+    html:has(ytd-app) .ytp-delhi-modern:not(.ytp-player-minimized) .ytp-progress-bar-container {
         bottom: var(--toolbar-height) !important;
     }
     
     /* Overlays */
-    .ytp-delhi-modern.ytp-big-mode.ytp-fullscreen-grid-peeking .ytp-overlays-container,
-    .ytp-delhi-modern.ytp-fullscreen-grid-peeking .ytp-overlays-container {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode.ytp-fullscreen-grid-peeking .ytp-overlays-container,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-fullscreen-grid-peeking .ytp-overlays-container {
         bottom: calc( var(--toolbar-height) + 20px) !important;
     }
 
     /* Margins & Padding reset */
-    .ytp-delhi-modern .ytp-chrome-controls .ytp-right-controls,
-    .ytp-delhi-modern .ytp-prev-button:not(.ytp-miniplayer-button-container>*),
-    .ytp-delhi-modern .ytp-chrome-controls .ytp-next-button:not(.ytp-miniplayer-button-container>*).ytp-playlist-ui,
-    .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area,
-    .ytp-delhi-modern .ytp-time-display:not(.ytp-miniplayer-ui *),
-    .ytp-delhi-modern .ytp-chapter-container {
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chrome-controls .ytp-right-controls,
+    html:has(ytd-app) .ytp-delhi-modern .ytp-prev-button:not(.ytp-miniplayer-button-container>*),
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chrome-controls .ytp-next-button:not(.ytp-miniplayer-button-container>*).ytp-playlist-ui,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area,
+    html:has(ytd-app) .ytp-delhi-modern .ytp-time-display:not(.ytp-miniplayer-ui *),
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chapter-container {
         margin: var(--element-margin) 0 !important;
         padding: 0 !important;
     }
 
     /* --- Play Button Sizing --- */
-    .ytp-delhi-modern .ytp-chrome-controls .ytp-play-button {
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chrome-controls .ytp-play-button {
         --size: var(--element-height);
         height: var(--size) !important;
         width: var(--size) !important;
@@ -197,7 +198,7 @@
         background: var(--bg-color) !important;
     }
     
-    .ytp-delhi-modern-icons .ytp-chrome-controls .ytp-play-button svg {
+    html:has(ytd-app) .ytp-delhi-modern-icons .ytp-chrome-controls .ytp-play-button svg {
         padding: 10px !important;
         --size: 40px;
         height: var(--size) !important;
@@ -206,7 +207,7 @@
     }
 
     /* --- Background Gradient --- */
-    .ytp-chrome-bottom:after {
+    html:has(ytd-app) .ytp-chrome-bottom:after {
         content: '';
         position: absolute;
         left: -100px;
@@ -218,13 +219,13 @@
     }
 
     /* --- Fullscreen Fixes (Sizes) --- */
-    .ytp-big-mode .ytp-volume-slider,
-    .ytp-delhi-modern .ytp-chrome-controls .ytp-mute-button,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-time-display,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chrome-controls .ytp-next-button:not(.ytp-miniplayer-button-container>*),
-    .ytp-big-mode.ytp-delhi-modern .ytp-chrome-controls .ytp-prev-button:not(ytp-miniplayer-button-container>*),
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-time-wrapper,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chapter-title.ytp-button {
+    html:has(ytd-app) .ytp-big-mode .ytp-volume-slider,
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chrome-controls .ytp-mute-button,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-time-display,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chrome-controls .ytp-next-button:not(.ytp-miniplayer-button-container>*),
+    html:has(ytd-app) .ytp-big-mode.ytp-delhi-modern .ytp-chrome-controls .ytp-prev-button:not(ytp-miniplayer-button-container>*),
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-time-wrapper,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chapter-title.ytp-button {
         height: var(--element-height) !important;
         min-height: var(--element-height) !important;
         line-height: var(--element-height) !important;
@@ -235,18 +236,18 @@
     }
 
     /* SVG Vertical Alignments in Big Mode */
-    .ytp-big-mode.ytp-delhi-modern-icons .ytp-chrome-controls .ytp-button svg,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chrome-controls .ytp-next-button:not(.ytp-miniplayer-button-container>*) svg,
-    .ytp-big-mode.ytp-delhi-modern .ytp-chrome-controls .ytp-prev-button:not(ytp-miniplayer-button-container>*) svg {
+    html:has(ytd-app) .ytp-big-mode.ytp-delhi-modern-icons .ytp-chrome-controls .ytp-button svg,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-chrome-controls .ytp-next-button:not(.ytp-miniplayer-button-container>*) svg,
+    html:has(ytd-app) .ytp-big-mode.ytp-delhi-modern .ytp-chrome-controls .ytp-prev-button:not(ytp-miniplayer-button-container>*) svg {
         padding-top: 14px;
     }
 
     /* --- Background Color Application --- */
-    .ytp-delhi-modern .ytp-time-wrapper:not(.ytp-miniplayer-ui *),
-    .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area,
-    .ytp-delhi-modern .ytp-chrome-controls .ytp-right-controls,
-    .ytp-delhi-modern .ytp-chrome-controls > * > *,
-    .ytp-delhi-modern .ytp-chapter-title.ytp-button {
+    html:has(ytd-app) .ytp-delhi-modern .ytp-time-wrapper:not(.ytp-miniplayer-ui *),
+    html:has(ytd-app) .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area,
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chrome-controls .ytp-right-controls,
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chrome-controls > * > *,
+    html:has(ytd-app) .ytp-delhi-modern .ytp-chapter-title.ytp-button {
         background: var(--bg-color) !important;
     }
 
@@ -257,72 +258,72 @@
     /* --- Enhancer for YouTube (EFYT) Grouping --- */
     /* If alignment is broken, adjust --efyt-group-x/y in :root */
     
-    #efyt-controls-button {
+    html:has(ytd-app) #efyt-controls-button {
         transform: translate(0.5rem, -0rem);
     }
     
     /* Group all standard EFYT buttons */
-    #efyt-flip-vertically, #efyt-keyboard-shortcuts, #efyt-options, 
-    #efyt-video-filters, #efyt-speed, #efyt-pop-up-player, 
-    #efyt-size, #efyt-cinema-mode, #efyt-cards-end-screens, #efyt-screenshot {
+    html:has(ytd-app) #efyt-flip-vertically, html:has(ytd-app) #efyt-keyboard-shortcuts, html:has(ytd-app) #efyt-options, 
+    html:has(ytd-app) #efyt-video-filters, html:has(ytd-app) #efyt-speed, html:has(ytd-app) #efyt-pop-up-player, 
+    html:has(ytd-app) #efyt-size, html:has(ytd-app) #efyt-cinema-mode, html:has(ytd-app) #efyt-cards-end-screens, html:has(ytd-app) #efyt-screenshot {
         transform: translate(var(--efyt-group-x), var(--efyt-group-y));
     }
     
     /* EFYT Specific Icons */
-    .ytp-efyt-button { transform: translate(-9px, -12px); }
-    #efyt-loop { transform: translate(0rem, 0rem); }
-    #efyt-volume-booster { transform: translate(-0.4rem, 0.6rem); }
-    #efyt-volume-booster svg { transform: translate(-0.5rem, -0.6rem); }
+    html:has(ytd-app) .ytp-efyt-button { transform: translate(-9px, -12px); }
+    html:has(ytd-app) #efyt-loop { transform: translate(0rem, 0rem); }
+    html:has(ytd-app) #efyt-volume-booster { transform: translate(-0.4rem, 0.6rem); }
+    html:has(ytd-app) #efyt-volume-booster svg { transform: translate(-0.5rem, -0.6rem); }
 
     /* EFYT: Fullscreen Overrides */
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-volume-booster svg {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-volume-booster svg {
         transform: translate(-1.1rem, -1.4rem);
     }
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-loop svg {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-loop svg {
         height: 110% !important; width: 110% !important;
         transform: translate(-0.8rem, -0.8rem);
     }
-    .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-volume-icon {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls.ytp-big-mode:not(.ytp-xsmall-width-mode) .ytp-volume-icon {
         height: 150%; width: 150%;
         transform: translate(-0.8rem, -1rem);
     }
     
     /* Fullscreen EFYT Group Positioning */
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-controls-button {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-controls-button {
         transform: translate(2rem, -2.1rem);
         overflow: visible;
     }
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-controls-button svg {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-controls-button svg {
          transform: translate(0.1rem, 0.1rem);
     }
 
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-flip-vertically,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-keyboard-shortcuts,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-options,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-video-filters,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-speed,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-pop-up-player,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-size,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-cinema-mode,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-cards-end-screens,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-screenshot {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-flip-vertically,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-keyboard-shortcuts,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-options,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-video-filters,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-speed,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-pop-up-player,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-size,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-cinema-mode,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-cards-end-screens,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #efyt-screenshot {
         transform: translate(var(--efyt-fs-group-x), var(--efyt-fs-group-y));
     }
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) :is(#efyt-flip-vertically, #efyt-keyboard-shortcuts, #efyt-options, #efyt-video-filters, #efyt-speed, #efyt-pop-up-player, #efyt-size, #efyt-cinema-mode, #efyt-cards-end-screens, #efyt-screenshot) svg {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) :is(#efyt-flip-vertically, #efyt-keyboard-shortcuts, #efyt-options, #efyt-video-filters, #efyt-speed, #efyt-pop-up-player, #efyt-size, #efyt-cinema-mode, #efyt-cards-end-screens, #efyt-screenshot) svg {
         transform: translate(1rem, 0rem);
     }
 
     /* --- SponsorBlock (SB) --- */
-    #startSegmentButton, #submitButton, #deleteButton, #cancelSegmentButton, #infoButton:not(.sbhidden) {
+    html:has(ytd-app) #startSegmentButton, html:has(ytd-app) #submitButton, html:has(ytd-app) #deleteButton, html:has(ytd-app) #cancelSegmentButton, html:has(ytd-app) #infoButton:not(.sbhidden) {
         transform: translateY(0.9rem);
     }
     
     /* SponsorBlock Fullscreen */
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #startSegmentButton,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #submitButton,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #deleteButton,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #cancelSegmentButton,
-    .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #infoButton:not(.sbhidden) {
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #startSegmentButton,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #submitButton,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #deleteButton,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #cancelSegmentButton,
+    html:has(ytd-app) .ytp-delhi-modern.ytp-big-mode:not(.ytp-xsmall-width-mode) #infoButton:not(.sbhidden) {
         transform: translateY(0.3rem);
     }
 
@@ -331,39 +332,39 @@
        ========================================================================== */
     
     /* Play/Pause/Replay */
-    .ytp-play-button[data-title-no-tooltip="Play"] svg path,
-    .ytp-play-button[data-title-no-tooltip="Lire"] svg path { d: path("M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z"); }
-    .ytp-play-button[data-title-no-tooltip="Pause"] svg path { d: path("M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z"); }
+    html:has(ytd-app) .ytp-play-button[data-title-no-tooltip="Play"] svg path,
+    html:has(ytd-app) .ytp-play-button[data-title-no-tooltip="Lire"] svg path { d: path("M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z"); }
+    html:has(ytd-app) .ytp-play-button[data-title-no-tooltip="Pause"] svg path { d: path("M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z"); }
     
     [d*="M 12.75 4.5 L 9.75 4.5 C 9.15 4.5"] { d: path("M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z"); }
     [d*="M4 4C3.73 4 3.48 4.10 3.29 4.29"] { d: path("m 12,12 h 2 v 12 h -2 z m 3.5,6 8.5,6 V 12 z"); transform: scale(1.36) translate(-9px, -9px); }
     [d*="M20 20C20.26 20 20.51 19.89 20.70 19.70"] { d: path("M 12,24 20.5,18 12,12 V 24 z M 22,12 v 12 h 2 V 12 h -2 z"); transform: scale(1.36) translate(-9px, -9px); }
 
     /* Volume */
-    .ytp-volume-icon:has(svg > path:nth-of-type(1)):not(:has(svg > path:nth-of-type(2))) svg {
+    html:has(ytd-app) .ytp-volume-icon:has(svg > path:nth-of-type(1)):not(:has(svg > path:nth-of-type(2))) svg {
         transform: translate(-0.6rem, -0.2rem);
     }
-    .ytp-volume-icon > svg:nth-child(1) { height: 60%; width: 60%; transform: translate(-0.8rem, -0.4rem); }
+    html:has(ytd-app) .ytp-volume-icon > svg:nth-child(1) { height: 60%; width: 60%; transform: translate(-0.8rem, -0.4rem); }
     
-    .ytp-svg-fill { d: path("M8,21 L12,21 L17,26 L17,10 L12,15 L8,15 L8,21 Z M19,14 L19,22 C20.48,21.32 21.5,19.77 21.5,18 C21.5,16.26 20.48,14.74 19,14 ZM19,11.29 C21.89,12.15 24,14.83 24,18 C24,21.17 21.89,23.85 19,24.71 L19,26.77 C23.01,25.86 26,22.28 26,18 C26,13.72 23.01,10.14 19,9.23 L19,11.29 Z"); transform: translate(-0.25rem, -0.35rem); }
+    html:has(ytd-app) .ytp-svg-fill { d: path("M8,21 L12,21 L17,26 L17,10 L12,15 L8,15 L8,21 Z M19,14 L19,22 C20.48,21.32 21.5,19.77 21.5,18 C21.5,16.26 20.48,14.74 19,14 ZM19,11.29 C21.89,12.15 24,14.83 24,18 C24,21.17 21.89,23.85 19,24.71 L19,26.77 C23.01,25.86 26,22.28 26,18 C26,13.72 23.01,10.14 19,9.23 L19,11.29 Z"); transform: translate(-0.25rem, -0.35rem); }
     .ytp-svg-volume-animation-small-ripple, .ytp-svg-volume-animation-big-ripple { d: none; transform: none; }
     
     /* Mute Icon Replacement */
     [d*="M11.60 2.08L11.48 2.14L3.91 6.68"] { d: path("m 21.48,17.98 c 0,-1.77 -1.02,-3.29 -2.5,-4.03 v 2.21 l 2.45,2.45 c .03,-0.2 .05,-0.41 .05,-0.63 z m 2.5,0 c 0,.94 -0.2,1.82 -0.54,2.64 l 1.51,1.51 c .66,-1.24 1.03,-2.65 1.03,-4.15 0,-4.28 -2.99,-7.86 -7,-8.76 v 2.05 c 2.89,.86 5,3.54 5,6.71 z M 9.25,8.98 l -1.27,1.26 4.72,4.73 H 7.98 v 6 H 11.98 l 5,5 v -6.73 l 4.25,4.25 c -0.67,.52 -1.42,.93 -2.25,1.18 v 2.06 c 1.38,-0.31 2.63,-0.95 3.69,-1.81 l 2.04,2.05 1.27,-1.27 -9,-9 -7.72,-7.72 z m 7.72,.99 -2.09,2.08 2.09,2.09 V 9.98 z"); transform: translate(-6px, -6px); }
 
     /* Subtitles */
-    .ytp-subtitles-button-icon svg { d: path("M11,11 C9.9,11 9,11.9 9,13 L9,23 C9,24.1 9.9,25 11,25 L25,25 C26.1,25 27,24.1 27,23 L27,13 C27,11.9 26.1,11 25,11 L11,11 Z M11,17 L14,17 L14,19 L11,19 L11,17 L11,17 Z M20,23 L11,23 L11,21 L20,21 L20,23 L20,23 Z M25,23 L22,23 L22,21 L25,21 L25,23 L25,23 Z M25,19 L16,19 L16,17 L25,17 L25,19 L25,19 Z"); transform: scale(1.2) translate(-.0rem, 0rem); }
+    html:has(ytd-app) .ytp-subtitles-button-icon svg { d: path("M11,11 C9.9,11 9,11.9 9,13 L9,23 C9,24.1 9.9,25 11,25 L25,25 C26.1,25 27,24.1 27,23 L27,13 C27,11.9 26.1,11 25,11 L11,11 Z M11,17 L14,17 L14,19 L11,19 L11,17 L11,17 Z M20,23 L11,23 L11,21 L20,21 L20,23 L20,23 Z M25,23 L22,23 L22,21 L25,21 L25,23 L25,23 Z M25,19 L16,19 L16,17 L25,17 L25,19 L25,19 Z"); transform: scale(1.2) translate(-.0rem, 0rem); }
     
     /* Settings Gear */
-    .ytp-settings-button svg path { d: path("M15.96 12.52c.02-.17.04-.35.04-.52s-.01-.35-.04-.52l1.12-.88c.1-.08.13-.22.06-.34l-1.07-1.84c-.06-.11-.2-.16-.31-.12l-1.33.54a4.72 4.72 0 0 0-.9-.52l-.2-1.42c-.01-.13-.13-.22-.26-.22h-2.13c-.13 0-.25.09-.26.22l-.2 1.42a4.72 4.72 0 0 0-.9.52l-1.33-.54a.27.27 0 0 0-.32.12l-1.07 1.84a.28.28 0 0 0 .06.34l1.12.88c-.02.17-.04.35-.04.52s.01.35.04.52l-1.12.88a.28.28 0 0 0-.06.34l1.07 1.84a.27.27 0 0 0 .32.12l1.33-.54c.27.2.57.38.9.52l.2 1.42c.01.13.13.22.26.22h2.13c.13 0 .25-.09.26-.22l.2-1.42c.33-.14.63-.31.9-.52l1.33.54c.11.04.25 0 .31-.12l1.07-1.84a.28.28 0 0 0-.06-.34l-1.12-.88zm-3.96 1.34a1.87 1.87 0 1 1 0-3.74 1.87 1.87 0 0 1 0 3.74z"); }
+    html:has(ytd-app) .ytp-settings-button svg path { d: path("M15.96 12.52c.02-.17.04-.35.04-.52s-.01-.35-.04-.52l1.12-.88c.1-.08.13-.22.06-.34l-1.07-1.84c-.06-.11-.2-.16-.31-.12l-1.33.54a4.72 4.72 0 0 0-.9-.52l-.2-1.42c-.01-.13-.13-.22-.26-.22h-2.13c-.13 0-.25.09-.26.22l-.2 1.42a4.72 4.72 0 0 0-.9.52l-1.33-.54a.27.27 0 0 0-.32.12l-1.07 1.84a.28.28 0 0 0 .06.34l1.12.88c-.02.17-.04.35-.04.52s.01.35.04.52l-1.12.88a.28.28 0 0 0-.06.34l1.07 1.84a.27.27 0 0 0 .32.12l1.33-.54c.27.2.57.38.9.52l.2 1.42c.01.13.13.22.26.22h2.13c.13 0 .25-.09.26-.22l.2-1.42c.33-.14.63-.31.9-.52l1.33.54c.11.04.25 0 .31-.12l1.07-1.84a.28.28 0 0 0-.06-.34l-1.12-.88zm-3.96 1.34a1.87 1.87 0 1 1 0-3.74 1.87 1.87 0 0 1 0 3.74z"); }
     
     /* Size Button */
-    .ytp-size-button svg path { d: path("m 26,13 0,10 -16,0 0,-10 z m -14,2 12,0 0,6 -12,0 0,-6 z"); transform: scale(1.2) translate(-8px, -9px); fill: rgb(255, 255, 255); fill-rule: evenodd; }
+    html:has(ytd-app) .ytp-size-button svg path { d: path("m 26,13 0,10 -16,0 0,-10 z m -14,2 12,0 0,6 -12,0 0,-6 z"); transform: scale(1.2) translate(-8px, -9px); fill: rgb(255, 255, 255); fill-rule: evenodd; }
 
     /* Fullscreen Button */
-    .ytp-fullscreen-button svg path { d: path("M7,11H6V6h5v1H7V11z M18,6h-5v1h4v4h1V6z M18,13h-1v4h-4v1h5V13z M11,17H7v-4H6v5h5V17z") !important; transform: scale(1.5) translate(-0.5rem, -0.5rem); }
-    .ytp-fullscreen-button { overflow: unset !important; }
-    .ytp-fullscreen-button::after { content: ''; position: absolute; inset-block: -10px; inset-inline: 0px; width: 220px !important; height: 200px; }
+    html:has(ytd-app) .ytp-fullscreen-button svg path { d: path("M7,11H6V6h5v1H7V11z M18,6h-5v1h4v4h1V6z M18,13h-1v4h-4v1h5V13z M11,17H7v-4H6v5h5V17z") !important; transform: scale(1.5) translate(-0.5rem, -0.5rem); }
+    html:has(ytd-app) .ytp-fullscreen-button { overflow: unset !important; }
+    html:has(ytd-app) .ytp-fullscreen-button::after { content: ''; position: absolute; inset-block: -10px; inset-inline: 0px; width: 220px !important; height: 200px; }
 
     /* Misc Icons */
     [d*="M21.20 3.01C21.66 3.05"] { d: path("M25,17 L17,17 L17,23 L25,23 L25,17 L25,17 Z M29,25 L29,10.98 C29,9.88 28.1,9 27,9 L9,9 C7.9,9 7,9.88 7,10.98 L7,25 C7,26.1 7.9,27 9,27 L27,27 C28.1,27 29,26.1 29,25 L29,25 Z M27,25.02 L9,25.02 L9,10.97 L27,10.97 L27,25.02 L27,25.02 Z"); transform: scale(1.083) translate(-6.75px, -6.75px); }
@@ -388,10 +389,10 @@ d: path("M19,4H5C3.9,4,3,4.9,3,6v12c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V6C21,4.9,
     /* ==========================================================================
        6. GLOBAL & FULLSCREEN BEHAVIORS
        ========================================================================== */
-    html:has(#movie_player.ytp-fullscreen),
-    body:has(#movie_player.ytp-fullscreen),
-    html:has(#movie_player.ytp-fullscreen) ytd-app,
-    html:has(#movie_player.ytp-fullscreen) #page-manager {
+    html:has(ytd-app) html:has(#movie_player.ytp-fullscreen),
+    html:has(ytd-app) body:has(#movie_player.ytp-fullscreen),
+    html:has(ytd-app) html:has(#movie_player.ytp-fullscreen) ytd-app,
+    html:has(ytd-app) html:has(#movie_player.ytp-fullscreen) #page-manager {
         overflow: hidden !important;
         height: 100vh !important;
         overscroll-behavior: none !important;
@@ -403,7 +404,7 @@ d: path("M19,4H5C3.9,4,3,4.9,3,6v12c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V6C21,4.9,
 
 
     /* ==========================================================================
-       6. YOUTUBE EMBED FIX
+       6. YOUTUBE EMBED FIX (just excluded each rules instead of fixing the mess I made)
        ========================================================================== */
 
 
