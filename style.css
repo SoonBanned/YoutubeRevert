@@ -1,9 +1,15 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI (Optimized)
-@version      20260202.16.01
-@namespace    ?
+@namespace    https://github.com/SoonBanned/YoutubeRevert
+@version      20260204.01.27
 @description  Makes new UI look like an old one. Optimized for easier maintenance.
+@author       SoonBanned
 @license      No License
+@homepageURL  https://github.com/SoonBanned/YoutubeRevert
+@updateURL    https://raw.githubusercontent.com/SoonBanned/YoutubeRevert/refs/heads/main/style.css
+
+@var checkbox redVolumeSlider "Controls: Red volume slider" 1
+@var checkbox forceNextButton "Controls: Force Next button" 1
 ==/UserStyle== */
 
 @-moz-document domain("youtube.com") {
@@ -91,12 +97,13 @@
        ========================================================================== */
 
     /* --- Base Variables & Colors --- */
-    /*OPTION (next 2 rules) to make volume slider red*/
-    html:has(ytd-app) .ytp-volume-slider-handle::before{
-        background-color:#f82723;
-    }
-    html:has(ytd-app) .ytp-volume-slider-handle{
-        background: #f82723;
+    if redVolumeSlider {
+        html:has(ytd-app) .ytp-volume-slider-handle::before {
+            background-color: #f82723;
+        }
+        html:has(ytd-app) .ytp-volume-slider-handle {
+            background: #f82723;
+        }
     }
     
     html:has(ytd-app) .ytd-player, html:has(ytd-app) .yt-lockup-view-model__content-image, html:has(ytd-app) .ytd-topbar-logo-renderer, html:has(ytd-app) .ytd-thumbnail {
@@ -113,11 +120,13 @@
         transform: translate(var(--next-x), var(--next-y));
     }
     html:has(ytd-app) .ytp-next-button {
-        /*OPTION (next rule only) make next (or skip) button visible when not in playlist*/
-        display: block !important;
-        
+        if forceNextButton {
+            display: block !important;
+        }
+
         transform: translate(var(--next-x), var(--next-y));
     }
+
     html:has(ytd-app) .ytp-volume-area {
         transform: translateY(var(--vol-y));
     }
