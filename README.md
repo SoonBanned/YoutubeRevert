@@ -34,8 +34,8 @@ This CSS includes **two optional tweaks** you can enable or disable easily:
 2. **Volume slider color**
    - Red by default
 
-💡 **New:** These options are now available as **clean Stylus-integrated toggles**.  
-No need to edit the CSS manually anymore.
+💡 These options are now implemented properly using **Stylus preprocessor mode**,  
+so you can toggle them cleanly without editing the CSS manually.
 
 ---
 
@@ -47,6 +47,9 @@ No need to edit the CSS manually anymore.
 ---
 
 ## 📜 Changelog
+
+### `2026-02-04 12:52`
+- Implemented options correctly using **Stylus preprocessor mode**
 
 ### `2026-02-04 01:27`
 - Added **clean Stylus-integrated options**:
