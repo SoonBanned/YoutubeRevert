@@ -34,18 +34,25 @@ This CSS includes **two optional tweaks** you can enable or disable easily:
 2. **Volume slider color**
    - Red by default
 
-🔍 To customize these:
-- Open the CSS
-- Search for **`OPTION`**
-- Comment out anything you don’t want
+💡 **New:** These options are now available as **clean Stylus-integrated toggles**.  
+No need to edit the CSS manually anymore.
 
 ---
 
 ## 🛠️ TODO (not urgent)
 
+- Restore **SponsorBlock hover effect** when *not* in fullscreen  
+  (currently looks a bit weird)
+
 ---
 
 ## 📜 Changelog
+
+### `2026-02-04 01:27`
+- Added **clean Stylus-integrated options**:
+  - Red volume slider toggle
+  - Forced Skip button toggle
+- Added cleaner **UserStyle metadata**
 
 ### `2026-02-02 16:01`
 - Fixed YouTube embeds
