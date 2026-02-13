@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI (Optimized)
 @namespace    https://github.com/SoonBanned/YoutubeRevert
-@version      20260204.12.52
+@version      20260213.15.00
 @description  Makes new UI look like an old one. Optimized for easier maintenance.
 @author       SoonBanned
 @license      No License
@@ -409,6 +409,12 @@ d: path("M19,4H5C3.9,4,3,4.9,3,6v12c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V6C21,4.9,
         height: 100vh !important;
         overscroll-behavior: none !important;
     }
+    
+    html:has(ytd-app) ytd-watch-flexy[fullscreen] #full-bleed-container.ytd-watch-flexy{
+        min-height: 100vh;
+    }
+    
+    
 }
 
 
