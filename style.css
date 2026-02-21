@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Youtube revert glass UI (Optimized)
 @namespace    https://github.com/SoonBanned/YoutubeRevert
-@version      20260213.15.00
+@version      20260221.11.16
 @description  Makes new UI look like an old one. Optimized for easier maintenance.
 @author       SoonBanned
 @license      No License
@@ -81,7 +81,7 @@
     /* E. STATE: SponsorBlock is PRESENT */
     html:has(ytd-app) #movie_player .ytp-chrome-bottom:has(#startSegmentButton) {
         --play-x: 0.3rem;   --play-y: 0.2rem;
-        --next-x: -0.3rem;  --next-y: 0.2rem;
+        --next-x: -0.3rem;  --next-y: 0.3rem;
         --vol-y: 0.3rem;
         --set-x: -0rem;     --set-y: -0rem;
     }
@@ -213,7 +213,7 @@
         --size: 40px;
         height: var(--size) !important;
         width: var(--size) !important;
-        transform: translate(-1.5rem, -0.9rem);
+        transform: translate(-1.9rem, -0.9rem);
     }
 
     /* --- Background Gradient --- */
